@@ -1,0 +1,43 @@
+   
+  <header class="p-3 bg-dark text-white" style="margin-bottom: 0px;">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+          <a href="#/home" style="font-size: 150%;" class="nav-link px-2 text-white" aria-current="page"><fa-icon [icon]="i_faNotesMedical"></fa-icon> Sismed App</a>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li class="nav-item" style="margin-right: 50px;" ></li>
+          <li class="nav-item" *ngIf="this.Admin"><a href="#/fmr-user" class="nav-link px-2 text-white"><fa-icon [icon]="i_faUserPlus"></fa-icon> Creación Usuario</a></li> 
+          <li class="nav-item"><a href="#/fmr-carga" class="nav-link px-2 text-white"><fa-icon [icon]="i_faPaperclip"></fa-icon> Carga <i class="fa fa-save"></i></a></li>
+          <li class="nav-item"><a href="#/fmr-errores" class="nav-link px-2 text-white"><fa-icon [icon]="i_faExclamationTriangle"></fa-icon> Errores</a></li> 
+          <li class="nav-item"><a href="#/fmr-reporte" class="nav-link px-2 text-white"><fa-icon [icon]="i_faDownload"></fa-icon> Reporte</a></li>
+          <li class="nav-item"><a href="#/acerca-de" class="nav-link px-2 text-white"><fa-icon [icon]="i_faInfo"></fa-icon> Acerca de</a></li>
+          <!-- <li class="nav-item"><a href="#/fmr-resulado" class="nav-link px-2 text-white">Resultado</a></li>  -->
+        </ul> 
+        
+
+        <div class="text-end"> 
+          <button type="button" class="btn btn-warning" (click)="loginout()"  href=""><fa-icon [icon]="i_faSignOutAlt"></fa-icon> Salir </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+   
+
+
+<!-- <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <a href="#/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+      <span class="fs-4">SISMED</span>
+    </a>
+    <ul class="nav nav-pills">
+      <li class="nav-item"><a href="#/home" class="nav-link" aria-current="page">Home</a></li>
+      <li class="nav-item"><a href="#/fmr-carga" class="nav-link">Fmr Carga</a></li>
+      <li class="nav-item"><a href="#/fmr-reporte" class="nav-link">Fmr Reporte</a></li>
+      <li class="nav-item"><a href="#/fmr-resulado" class="nav-link">Fmr Resultado</a></li> 
+      <li class="nav-item"><a href="#/fmr-user" class="nav-link">Creación Usuario</a></li> 
+    </ul> 
+</header>  -->

@@ -1,0 +1,65 @@
+<app-header></app-header>
+<div class="container">
+  <div class="text-center">
+    <form class="form-signin">
+      <div class="py-5 text-center">
+        <h2>Generar Reporte  </h2>
+       <p class="lead">Generacion de los reportes...</p>
+     </div>
+      <div class="row">
+        <div class="col-md-4 offset-md-2 col-xs-12">
+          <div class="mb-3 row">
+            <label for="selAño" style="float: left" class="col-sm-2 col-form-label" >Año</label  >
+            <div class="col-sm-10">
+              <input type="number" class="form-control" min="2021" max="2099" step="1" name="anio"  [(ngModel)]="anio" />
+              <!-- <select class="form-select" id="selAño">
+                <option value="0" disabled>Seleccione...</option>
+                <option>2022</option>
+                <option>2021</option>
+                <option>2020</option>
+                <option>2019</option>
+              </select> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12">
+          <div class="mb-3 row">
+            <label for="selPeriodo" style="float: left" class="col-sm-2 col-form-label" >Periodo</label >
+            <div class="col-sm-10">
+              <select class="form-select" id="selPeriodo" [(ngModel)]="periodo" name="periodo">
+                <option value="0" disabled>Seleccione...</option>
+                <option>Enero   - Marzo</option>
+                <option>Abril   - Junio</option>
+                <option>Julio   - Septiembre</option>
+                <option>Octubre - Diciembre</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 offset-md-2 col-xs-12">      
+        <div class="mb-3 row">
+          <label for="selTipoDoc" style="float: left" class="col-sm-2 col-form-label">Tipo <i class="fa fa-file-archive-o" aria-hidden="true"></i></label>
+          <div class="col-sm-10">
+            <select class="form-select" id="selTipoDoc"  [(ngModel)]="tipo" name="tipo"  required>
+              <option value="0" disabled>Seleccione...</option>
+              <option value="2">Compra</option>
+              <option value="1">Venta</option>
+              <option value="3">Recocobro</option>
+            </select>
+          </div>
+        </div> 
+      </div> 
+
+        <div class="col-md-4 offset-md-4">
+          <button class="btn btn-outline-success btn-sd" style="width: 100%" type="submit" (click)="descargarReporte()" >
+            <fa-icon [icon]="i_faDownload"></fa-icon>  Generar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <label for="txtMessage" style="color: red;" *ngIf="message">{{message}}</label>
+ <label for="txtmessageSuccess" style="color: blue;" *ngIf="messageSuccess">{{messageSuccess}}</label>
+</div>

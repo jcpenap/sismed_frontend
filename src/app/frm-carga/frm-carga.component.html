@@ -1,0 +1,58 @@
+ 
+  <app-header></app-header>
+
+  <div class="container" >
+
+  <div class="row">  
+    <div class="py-5 text-center">
+       <h2>Formulario de Carga</h2>
+      <p class="lead">Seleccione el aricho a cargar...</p>
+    </div>
+      <div class="col-md-8 offset-md-2 col-xs-12"> 
+        </div> 
+          <div class="col-md-8 offset-md-2 col-xs-12">
+            <div class="mb-3 row">
+              <label for="selTipoDoc" style="float: left" class="col-sm-2 col-form-label">Tipo <i class="fa fa-file-archive-o" aria-hidden="true"></i></label>
+              <div class="col-sm-10">
+                <select class="form-select" id="selTipoDoc" [(ngModel)]="documento" required>
+                  <option value="0" disabled>Seleccione...</option>
+                  <option value="CM">Compra</option>
+                  <option value="VN">Venta</option>
+                  <option value="RC">Recocobro</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-8 offset-md-2 col-xs-12">
+            <div class="custom-file mb-3 row">
+            <label for="selTipoDoc" style="float: left" class="col-sm-2 col-form-label">Archivo <i class="fa fa-file-archive-o" aria-hidden="true"></i></label>
+            <div class="col-sm-10">
+              <input type="file" id="fileHiden" (change)="onFileChange($event)" hidden accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control"  maxlength="100" disabled  [(ngModel)]="fileUploaded">
+              <div class="input-group-append">
+                <button class="btn btn-outline-primary btn-sd" style="width: 100%;" style="display: inline" (click)="seleccionarArchivo($event)">
+                  File
+                </button>                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="col-md-3 offset-md-3">
+          <button class="btn btn-outline-primary btn-sd" style="width: 100%" type="submit" (click)="subirArchivo()">
+            <fa-icon [icon]="i_faUpload"></fa-icon> Cargar
+          </button>
+        </div> 
+        <div class="col-md-3">
+          <button class="btn btn-outline-success btn-sd" style="width: 100%" type="submit" (click)="descargarArchivo()">
+            <fa-icon [icon]="i_faDownload"></fa-icon> Descargar Plantilla
+          </button>
+        </div> 
+         <label for="txtMessage" style="color: red;" *ngIf="message">{{message}}</label>
+        <label for="txtmessageSuccess" style="color: blue;" *ngIf="messageSuccess">{{messageSuccess}}</label>
+    </div>  
+</div>
+ 

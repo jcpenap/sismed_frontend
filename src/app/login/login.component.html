@@ -1,0 +1,33 @@
+<header class="p-3 bg-dark text-white" style="margin-bottom: 0px;">
+    <div class="container">
+      <div class="">
+       
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li class="nav-item"><a href="#/home" class="nav-link  text-white" aria-current="page"><h3 class="h3 mb-3 fw-normal"><fa-icon [icon]="i_faNotesMedical"></fa-icon> SISMED APP</h3></a></li>
+        </ul> 
+        
+ 
+      </div>
+    </div>
+  </header>
+
+<div class="text-center">
+    <form class="form-signin" [formGroup]="form" (ngSubmit)="onSubmit()" style="margin-top: 10px;">
+        <!-- <img class="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">-->
+        <!-- <h1 class="h1 mb-3 fw-normal">SISMED APP</h1> -->
+        <h5 class="h5 mb-3 fw-normal"  style="margin-top: 20px;">Please sign in</h5>
+        <!-- <label for="txtUsuario" class="sr-only">Usuario</label> -->
+        
+        <input type="text" id="txtUsuario" class="form-control" placeholder="Usuario" formControlName="username" style="margin-top: 50px;" required autofocus>
+        <!-- <label for="txtPassword" class="sr-only">Password</label> -->
+        <input type="password" id="txtPassword" class="form-control" placeholder="Password" formControlName="password" required>
+        <div class="row">
+            <div class="col-md-6 offset-md-3"  style="margin-top: 30px;">
+                <button class="btn btn-outline-primary btn-sd" style="width: 100%;" type="submit">Login</button>
+            </div> 
+        </div>
+        <label for="txtMessage" style="color: red;" *ngIf="message">{{message}}</label>
+        <p class="mt-5 mb-3 text-muted">&copy; 2021 - Sismed</p>
+    </form>
+</div>

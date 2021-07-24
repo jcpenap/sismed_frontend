@@ -1,0 +1,179 @@
+ 
+<app-header></app-header>
+<div class="container" style="margin-bottom: 50PX;" >
+    <div class="row"  >
+        <div class="py-5 text-center">
+            <h2>Formulario de Creacion de Usuarios</h2>
+        <p class="lead">Modulo de administración de Usuarios.</p>
+        </div>
+
+        <div class="col-md-12  col-xs-12">
+            <form class="form-signin" [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="row" style="margin-bottom: 0;">
+                    <div class="col-md-12" style="margin-bottom: 0;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label style="color: #9c9898;font-size: 85%;margin-left: 15px;margin-bottom: 0;"> <i> (<span
+                                        style="color:red">*</span>) Obligatorio</i></label>
+                        </div>
+                    </div> 
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="small-font" for="firstName"
+                                style="font-weight: bold; font-size: 15px; margin-top: 20px;margin-bottom: 0px;">1. Nombre
+                                (<span style="color:red">*</span>):</label>
+                            <input id="firstName" name="firstName" type="text" class="form-control" maxlength="100" formControlName="firstName" required>
+                        </div>
+                    </div> 
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="small-font" for="lastName"
+                                style="font-weight: bold; font-size: 15px; margin-top: 20px;margin-bottom: 0px;">2. Apellidos
+                                (<span style="color:red">*</span>):</label>
+                            <input id="lastName" name="lastName" type="text" class="form-control" maxlength="100" formControlName="lastName" required>
+                        </div>
+                    </div> 
+                    
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="small-font" for="email" style="font-weight: bold; font-size: 15px; margin-top: 20px;margin-bottom: 0px;">
+                                3. Email (<span style="color:red">*</span>):</label> 
+                            <div class="input-group has-validation"> <span class="input-group-text">@</span>
+                                <input id="email" name="email" type="email" class="form-control" formControlName="email" required>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="small-font" for="password"
+                                style="font-weight: bold; font-size: 15px; margin-top: 20px;margin-bottom: 0px;">4. Contraseña
+                                (<span style="color:red">*</span>):</label>
+                            <input id="password" name="password" type="password" class="form-control" maxlength="15" formControlName="password" required>
+                        </div>
+                    </div> 
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="small-font" for="roles"
+                                style="font-weight: bold; font-size: 15px; margin-top: 20px;margin-bottom: 0px;">5. Roles
+                                (<span style="color:red">*</span>):</label>
+                                <select id="roles" name="roles" class="form-select" formControlName="roles" required>
+                                    <option value="0" selected disabled>Seleccione...</option>
+                                    <option value="ROLE_ADMIN">Administrador</option>
+                                    <option value="ROLE_USER">Usuario</option>
+
+                                </select>
+                        </div>
+                    </div> 
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="small-font" for="roles"
+                                style="font-weight: bold; font-size: 15px; margin-top: 20px;margin-bottom: 0px;">6. Tipos de Documento
+                                (<span style="color:red">*</span>):</label>
+                                <select id="documentTypes" name="documentTypes" class="form-select" formControlName="documentTypes" required>
+                                    <option value="0" selected disabled>Seleccione...</option>
+                                    <option value="NI">NIT</option>
+                                    <option value="MU">Municipio</option>
+                                    <option value="DE">Departamento</option>
+                                    <option value="DI">Distrito</option>  
+                                </select>
+                        </div>
+                    </div> 
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="small-font" for="actor"
+                                style="font-weight: bold; font-size: 15px; margin-top: 20px;margin-bottom: 0px;">7. Actor
+                                (<span style="color:red">*</span>):</label>
+                                <select id="actor" name="actor" class="form-select" formControlName="actor" required>
+                                    <option value="0" selected disabled>Seleccione...</option>
+                                    <option value="01">1 - Actor que elabora o importa el medicamento a reportar</option>
+                                    <option value="02">2 - Actor que no elabora ni importa el medicamento</option>
+                                </select>
+                        </div>
+                    </div> 
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="small-font" for="acode"
+                                style="font-weight: bold; font-size: 15px; margin-top: 20px;margin-bottom: 0px;">8. Código de Habilitación
+                                (<span style="color:red">*</span>):</label>
+                            <input id="acode" name="acode" type="text" class="form-control" maxlength="10" formControlName="acode" required>
+                        </div>
+                    </div> 
+                </div>
+                <div class="row">
+
+                    <div class="col-md-4 offset-md-4" style="margin-top: 50px;"  *ngIf="this.guardar">
+                        <div class="form-group">
+                            <button type="submit"  name="upload"  class="btn btn-outline-primary btn-lg form-control" > 
+                                <fa-icon [icon]="i_faSave"></fa-icon> Crear Usuario
+                            </button>
+                            <!-- <input type="submit" name="upload" class="btn btn-outline-primary btn-lg form-control"
+                            value="Crear Usuario"> -->
+                        </div>
+                    </div>
+                    <div class="col-md-4 offset-md-2" style="margin-top: 50px;" *ngIf="this.modificar">
+                        <div class="form-group">
+                            <button type="button"  name="upload"  class="btn btn-outline-success btn-lg form-control" (click)="update()" > 
+                                <fa-icon [icon]="i_faEdit"></fa-icon> Modificar 
+                            </button> 
+                        </div>
+                    </div>
+                    <div class="col-md-4 " style="margin-top: 50px;"  *ngIf="this.cancelar">
+                        <div class="form-group">
+                            <button type="button"  name="upload"  class="btn btn-outline-warning btn-lg form-control" (click)="limpiar()" > 
+                                <fa-icon [icon]="i_faEraser"></fa-icon> Cancelar
+                            </button> 
+                        </div>
+                    </div>
+                    <label for="txtMessage" style="color: red;" *ngIf="message">{{message}}</label>
+                    <label for="txtmessageSuccess" style="color: blue;" *ngIf="messageSuccess">{{messageSuccess}}</label>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-12  col-xs-12" style="margin-top: 50px;" *ngIf="this.Admin" > 
+            <div class="d-flex flex-row-reverse bd-highlight mb-2">
+                <div class="p-2 bd-highlight">
+                    <select (change)="onTableSizeChange($event)" class="custom-select">
+                        <option *ngFor="let size of tableSizes" [ngValue]="size">
+                            {{ size }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <table mdbTable style="width: 100%;" class="table table-striped table-hover">
+                <caption > Usuarios Creados ({{userCreados}}).  </caption>
+                <thead>
+                <tr>
+                    <th nowrap *ngFor="let head of headElements"  scope="col">{{head}} </th>
+                    <th nowrap></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr mdbTableCol *ngFor="let el of elements | paginate : {
+                    itemsPerPage: tableSize,
+                    currentPage: page,
+                    totalItems: count
+                  };">
+                    <th scope="row">{{el.id}}</th>
+                    <td>{{el.email}}</td>
+                    <td>{{el.firstName + ' '+ el.lastName}}</td>
+                    <!-- <td>{{el.lastName}}</td> -->
+                    <td>{{el.roles[0]}}</td>
+                    <td>{{el.documentType}}</td>
+                    <!-- <td>{{el.avaliabilityCode}}</td> -->
+                    <td> <button class="btn btn-outline-success btn-sd" style="width: 100%;" style="display: inline"  (click)="mostrarValor(this.el)">
+                        <fa-icon [icon]="i_faEye"></fa-icon>  
+                    </button> </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-center">
+                <pagination-controls 
+                    responsive="true" 
+                    previousLabel="Prev" 
+                    nextLabel="Next" 
+                    (pageChange)="onTableDataChange($event)">
+                </pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>
+
